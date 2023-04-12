@@ -2,7 +2,7 @@
   "name": "webvagas",
   "type": "module",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.mjs",
   "license": "MIT",
   "scripts": {
     "start": "nodemon src/index.mjs"

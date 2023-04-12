@@ -1,8 +1,8 @@
-import Router from 'express';
-import listCrowler from '../controllers/crowlerController.mjs';
+import Router from "express";
+import controller from "../controllers/mainController.mjs";
 
 const getRouter = Router();
 
-getRouter.get("/", listCrowler);
+getRouter.get("/", controller);
 
 export default getRouter;
