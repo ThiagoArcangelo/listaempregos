@@ -1,8 +1,8 @@
 import Router from "express";
-import controller from "../controllers/mainController.mjs";
+import { main } from "../controllers/MainController.mjs";
 
 const getRouter = Router();
 
-getRouter.get("/", controller);
+getRouter.get("/", main);
 
 export default getRouter;
