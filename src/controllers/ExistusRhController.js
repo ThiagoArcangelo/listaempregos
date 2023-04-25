@@ -4,14 +4,33 @@ const ExitusController = async (page) => {
 
   await page.goto(url);
 
-  await page.waitForSelector(".p-3 .align-self-center");
+  await page.waitForSelector(".align-self-center");
 
-  const result = await page.$(
-    "div > .p-3 .align-self-center > h3",
-    (value) => value.innerText
-  );
+  const result = await page.$eval(".align-self-center h3", (element) => {
+    const data = element.innerText;
 
-  return result;
+    return data;
+  });
+
+  const link = await page.$eval(".align-items-center a", (element) => {
+    const data = element.href;
+    return data;
+  });
+
+  const city = await page.$eval(".mr-3 ", (element) => {
+    const data = element.innerText;
+    return data;
+  });
+
+  const dataResult = {
+    vaga: result,
+    cidade: city,
+    url: link,
+  };
+
+  return dataResult;
 };
 
 export default ExitusController;
+
+// .align-self-center
