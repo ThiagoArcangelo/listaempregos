@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer";
-import list from "./BauruEmpregosController.mjs";
-import getData from "./EmpregaBauruController.mjs";
-import existusRh from "./ExistusRhController.js";
+import listBauruEmpregos from "./BauruEmpregosController.mjs";
+import listEmpregaBauru from "./EmpregaBauruController.mjs";
+import listExitusRh from "./ExistusRhController.js";
 
 async function main(req, res) {
   const browser = await puppeteer.launch({
@@ -11,7 +11,11 @@ async function main(req, res) {
 
   const page = await browser.newPage();
 
-  await Promise.all([/*list(page) ,  getData(page)  ,*/ existusRh(page)])
+  await Promise.all([
+    /*listBauruEmpregos(page),*/ listEmpregaBauru(
+      page
+    ) /*, listExitusRh(page),*/,
+  ])
     .then((values) => {
       res.status(200).json(values);
     })
