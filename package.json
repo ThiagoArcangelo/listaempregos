@@ -5,6 +5,7 @@
   "main": "index.mjs",
   "license": "MIT",
   "scripts": {
+<<<<<<< HEAD
     "start": "nodemon src/server.js"
   },
   "dependencies": {
@@ -18,5 +19,16 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
+=======
+    "start": "nodemon src/index.mjs"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "puppeteer": "^19.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+>>>>>>> 1ec0d8831446711fb7406ec50ec7c420ad1b6697
   }
 }
