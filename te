@@ -1,0 +1,61 @@
+[33mcommit 48897f1927e915a1f7d6164b09f98037e1202526[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Merge: f2e575b 1ec0d88
+Author: ThiagoArcangelo <devtsarcangelo@gmail.com>
+Date:   Tue Jan 23 01:32:54 2024 -0300
+
+    test: Testando rotas
+
+[33mcommit f2e575b612c048333b127137b5c1fc283324bb0e[m
+Author: ThiagoArcangelo <devtsarcangelo@gmail.com>
+Date:   Tue Jan 23 01:10:21 2024 -0300
+
+    test: Novas rotas adicionadas
+
+[33mcommit 1ec0d8831446711fb7406ec50ec7c420ad1b6697[m
+Author: ThiagoArcangelo <devtsarcangelo@gmail.com>
+Date:   Wed May 3 13:31:12 2023 -0300
+
+    feat: Novo controller para webscraping adicionado
+
+[33mcommit 861e8d804b217a600a2493e3b609c7a9d7f6748b[m
+Author: ThiagoArcangelo <devtsarcangelo@gmail.com>
+Date:   Tue Apr 25 13:22:55 2023 -0300
+
+    fix: Correção no controller de busca da exRh
+
+[33mcommit a05f239caeefefee031be70c03116b0db8ad088a[m
+Author: ThiagoArcangelo <devtsarcangelo@gmail.com>
+Date:   Thu Apr 20 13:01:09 2023 -0300
+
+    feat: 2 controllers adicionados para scraping de dados
+
+[33mcommit c19f7bd727e8d8e2af57c6b849d4b48fbcc9f384[m
+Merge: 3cef7f7 0cbeb88
+Author: ThiagoArcangelo <devtsarcangelo@gmail.com>
+Date:   Wed Apr 12 17:42:25 2023 -0300
+
+    feat: instancia puppeter
+
+[33mcommit 3cef7f77e12033898b6a8bf2f5693aafc46a974c[m
+Author: ThiagoArcangelo <devtsarcangelo@gmail.com>
+Date:   Wed Apr 12 17:41:08 2023 -0300
+
+    feat atualização cotroller puppeteer
+
+[33mcommit 0cbeb88b8826714f613c5b3a927e1ab340248e10[m
+Author: Thiago <devtsarcangelo@gmail.com>
+Date:   Tue Feb 7 00:36:39 2023 -0300
+
+    Inserção de URL
+
+[33mcommit 5bb053264b520754ea078d999657da82625152de[m
+Author: ThiagoArcangelo <devtsarcangelo@gmail.com>
+Date:   Mon Feb 6 15:10:14 2023 -0300
+
+    Get Data Scraping
+
+[33mcommit 50530c57238d2febcb13c3675e457380e34ce61d[m
+Author: Thiago <devtsarcangelo@gmail.com>
+Date:   Mon Feb 6 00:31:19 2023 -0300
+
+    Scraping de dados com ex:

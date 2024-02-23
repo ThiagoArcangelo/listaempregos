@@ -1,5 +1,5 @@
 import Router from "express";
-import main  from "../controllers/mainController.js";
+import main  from "../services/Processamento.js";
 
 const getRouter = Router();
 
