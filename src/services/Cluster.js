@@ -1,4 +1,4 @@
-import puppeteer from "puppeteer";
+import cluster, { Cluster } from "puppeteer-cluster";
 
 // Model da aplicação 
 import Vaga from "../model/vagas.js";
@@ -9,19 +9,25 @@ import listEmpregaBauru from "./EmpregaBauru.js";
 import listExitusRh from "./ExistusRh.js";
 
 async function ClusterMain(req, res) {
-  const browser = await puppeteer.launch({headless: "new"});
+  const browser = await cluster.launch({concurrency: Cluster.CONCURRENCY_CONTEXT, maxConcurrency : 10});
 
-  const page = await browser.newPage();
+  await cluster.task(async ({page, data: url}) => {
+    await page.goto(url)
 
-  const url1 = await listBauruEmpregos(page);
-  // const url2 = await listEmpregaBauru(page);
-  const url3 = await listExitusRh(page);
+    const listaDeVagas = [];
 
-  const listaDeVagas = [];
+    listaDeVagas.push(url1);
+    listaDeVagas.push(url3);  
+    // listaDeVagas.push(url2);
+  
+    const url1 = await listBauruEmpregos(page);
+    // const url2 = await listEmpregaBauru(page);
+    const url3 = await listExitusRh(page);
+  })
 
-  listaDeVagas.push(url1);
-  listaDeVagas.push(url3);  
-  // listaDeVagas.push(url2);
+
+
+//   const page = await browser.newPage();
 
   let message = "";
 
@@ -30,7 +36,7 @@ async function ClusterMain(req, res) {
   async function inserirDados() {
     try {
       
-      await Promise.all(listaDeVagas.map((item) => {
+      await Promise.all(listaDeVagas.map((item) => { 
         const vaga = new Vaga(item);   
     
         vaga.save(err => {

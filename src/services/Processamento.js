@@ -1,4 +1,5 @@
 import puppeteer from "puppeteer";
+import fs  from "fs";
 
 // Model da aplicação 
 import Vaga from "../model/vagas.js";
@@ -21,37 +22,16 @@ async function main(req, res) {
 
   listaDeVagas.push(url1);
   listaDeVagas.push(url3);  
-  // listaDeVagas.push(url2);
+  // listaDeVagas.push(url2); 
 
-  let message = "";
-
-  // const resultado = JSON.stringify(listaDeVagas);
-
-  async function inserirDados() {
-    try {
-      
-      await Promise.all(listaDeVagas.map((item) => {
-        const vaga = new Vaga(item);   
-    
-        vaga.save(err => {
-          if(err) return console.error(err);      
-    
-          message = "Arquivos salvos no banco de dados!";
-          // return item;
-        });
-        
-      }));
-
-      res.send(message);
-      
-    } catch (error) {
-      console.log(error);
+  fs.writeFile("data.json", JSON.stringify(listaDeVagas), 'utf8', function(err) {
+    if(err) {
+        return console.log(err);
     }
-  }
-
-  inserirDados();
-
-  res.send(message);
+    res.send("Arquivo gravado com sucesso, vejam em : './data.json'");
+});
+  
+  // res.send(listaDeVagas);
  
   await browser.close();
 }

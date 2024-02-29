@@ -6,17 +6,14 @@ const Vaga = new mongoose.Schema({
     //     required: true,
     //     unique: true
     // },
-    vaga: {
+    Vaga: {
         type: String,
-        required: true,
     },
-    local: {
+    Local: {
         type: String,
-        required: true
     },
-    url: {
+    Url: {
         type: String,
-        required: true
     }
 });
 
