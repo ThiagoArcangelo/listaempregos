@@ -24,7 +24,7 @@ const ExitusController = async (page) => {
 
   const dataResult = {
     vaga: resultado,
-    cidade: cidade,
+    local: cidade,
     url: urlVaga,
   };
 

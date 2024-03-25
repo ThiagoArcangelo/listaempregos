@@ -17,7 +17,7 @@ async function listCrowler(page) {
         const local = element.querySelector(".cidade-vaga").textContent;
         const url = element.querySelector(".descricao-vaga a");
 
-        const data = { Vaga: vaga, Local: local, Url: url.href };
+        const data = { vaga: vaga, local: local, url: url.href };
 
         return data;
       });

@@ -1,8 +1,10 @@
 import Router from "express";
 import main  from "../services/Processamento.js";
+import LerArquivo from "../services/LerArquivo.js";
 
-const getRouter = Router();
+const router = Router();
 
-getRouter.get("/", main);
+router.get("/", main);
+router.get("/lerarquivo", LerArquivo);
 
-export default getRouter;
+export default router;
