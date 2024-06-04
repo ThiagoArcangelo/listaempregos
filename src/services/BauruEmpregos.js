@@ -1,6 +1,6 @@
 async function listCrowler(page) {
   const url = "https://www.bauruempregos.com.br/home/vagas";
-
+  
   await page.goto(url);
 
   try {

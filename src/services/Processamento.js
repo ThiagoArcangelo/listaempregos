@@ -33,7 +33,7 @@ async function main(req, res) {
     await info.save();
   }
 
-
+//#region Objeto Map
   // const retorno = JSON.stringify(listaDeVagas);
  
   //#region Rotina para salvar dados em arquivo local com o filesystem
@@ -58,6 +58,9 @@ async function main(req, res) {
   //     salvarDados(item); 
   //   })
   // })  
+  //#endregion
+
+  await Vaga.deleteMany();
 
   listaDeVagas.map((item) => {
     Array.from(item).map(dados => {
