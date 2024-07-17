@@ -1,4 +1,6 @@
 import express from "express";
+import axios from "axios";
+import cron from "node-cron";
 import cors from "cors";
 // import router from "./routes/getRoutes.js";
 import router from "./routes/index.js";
@@ -10,6 +12,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
+
+cron.schedule('* * 13 * * 1-5 ', () => {
+  axios.get("http://localhost:3333")
+});
 
 app.use(router);
 conexaoDb();

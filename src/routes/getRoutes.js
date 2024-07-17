@@ -5,6 +5,6 @@ import LerArquivo from "../services/LerArquivo.js";
 const router = Router();
 
 router.get("/", main);
-router.get("/lerarquivo", LerArquivo);
+// router.get("/lerarquivo", LerArquivo);
 
 export default router;

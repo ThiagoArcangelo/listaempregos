@@ -4,9 +4,7 @@ export async function dados(req, res) {
     try 
     {
         // Recebe o número da página - Default 1
-        let { page = 1, limit = 10 } = req.query;
-
-        console.log(titulo);
+        let { page = 1, limit = 10} = req.query;
 
         const contagem = await Vaga.countDocuments();
 
@@ -29,15 +27,13 @@ export async function dados(req, res) {
 
 export async function BuscaTitulo(req, res) {
     try {
-        const { titulo } = req.body; 
+        const {titulo} = req.query; 
 
         if (!titulo) {
             return res.status(400).json({ error: "Título não fornecido" }); 
         }
-        
-        const regex = new RegExp(titulo, 'i');
 
-        const resultado = await Vaga.find({ Vaga: regex });
+        const resultado = await Vaga.find({ Vaga: new RegExp(titulo, 'i') });
 
         res.status(200).json(resultado);
 
