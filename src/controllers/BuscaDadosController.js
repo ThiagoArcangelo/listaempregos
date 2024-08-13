@@ -1,6 +1,6 @@
 import Vaga from "../model/vagas.js";
 
-export async function dados(req, res) {
+export async function RetornaDados(req, res) {
     try 
     {
         // Recebe o número da página - Default 1
@@ -27,13 +27,24 @@ export async function dados(req, res) {
 
 export async function BuscaTitulo(req, res) {
     try {
-        const {titulo} = req.query; 
+        const {page = 1, limit = 10, titulo} = req.query; 
+        const contagem = await Vaga.countDocuments();
 
         if (!titulo) {
             return res.status(400).json({ error: "Título não fornecido" }); 
         }
 
-        const resultado = await Vaga.find({ Vaga: new RegExp(titulo, 'i') });
+        const resultado = await Vaga.find({ Vaga: new RegExp(titulo, 'i') })
+            .skip(((page - 1) * limit))
+            .limit(limit)
+            .exec()
+            .then((item) => {
+                return res.status(200).json({                    
+                    item,
+                    contagem,
+                    page: page
+                });
+            });;
 
         res.status(200).json(resultado);
 

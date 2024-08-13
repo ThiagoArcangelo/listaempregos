@@ -15,7 +15,6 @@ async function main(req, res) {
   const page = await browser.newPage();
 
   const url1 = await listBauruEmpregos(page);
-  // const url2 = await listEmpregaBauru(page);
   const url3 = await listExitusRh(page);
 
   const listaDeVagas = [];
@@ -33,33 +32,6 @@ async function main(req, res) {
     await info.save();
   }
 
-//#region Objeto Map
-  // const retorno = JSON.stringify(listaDeVagas);
- 
-  //#region Rotina para salvar dados em arquivo local com o filesystem
-//   Escrever arquivo data.json
-//   fs.writeFile("data.json", JSON.stringify(listaDeVagas), 'utf8', function(err) {
-//     if(err) {
-//         return console.log(err);
-//     }
-//     res.send("Arquivo gravado com sucesso, vejam em : './data.json'");
-// });
-
-  
-  // res.send(listaDeVagas);
-
-  // const resultado = retorno.split(',').map((elemento) => {
-  //   salvarDados(elemento); 
-  // }) ;
-  //#endregion
-
-  // const resultado = retorno.split(',').map((elemento) => {
-  //   elemento.split(',').map(item => {
-  //     salvarDados(item); 
-  //   })
-  // })  
-  //#endregion
-
   await Vaga.deleteMany();
 
   listaDeVagas.map((item) => {
@@ -68,15 +40,6 @@ async function main(req, res) {
     });
     
   });
-
-  //#region Transforma os dados em Array  
-  /*const resultado =Array.from(listaDeVagas).map((item) => {
-    Array.from(item).map((valor) => {
-      const retorno = JSON.stringify(valor);
-      salvarDados(retorno);
-    });
-  }); */ 
-  //#endregion
   
   res.send(listaDeVagas);
  

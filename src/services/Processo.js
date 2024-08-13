@@ -11,7 +11,7 @@ import listExitusRh from "./ExistusRh.js";
 const listaDeVagas = [];
 
 async function main(req, res) 
-{
+{ //
     try
     {
 
