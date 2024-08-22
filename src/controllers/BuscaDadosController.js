@@ -4,7 +4,7 @@ export async function RetornaDados(req, res) {
     try 
     {
         // Recebe o número da página - Default 1
-        let { page = 1, limit = 10} = req.query;
+        let { page = 1, limit = 25} = req.query;
 
         const contagem = await Vaga.countDocuments();
 
@@ -27,8 +27,8 @@ export async function RetornaDados(req, res) {
 
 export async function BuscaTitulo(req, res) {
     try {
-        const {page = 1, limit = 10, titulo} = req.query; 
-        const contagem = await Vaga.countDocuments();
+        const {page = 1, limit = 25, titulo} = req.query; 
+        const contagem = await Vaga.countDocuments({ Vaga: new RegExp(titulo, 'i') });
 
         if (!titulo) {
             return res.status(400).json({ error: "Título não fornecido" }); 
@@ -36,17 +36,13 @@ export async function BuscaTitulo(req, res) {
 
         const resultado = await Vaga.find({ Vaga: new RegExp(titulo, 'i') })
             .skip(((page - 1) * limit))
-            .limit(limit)
-            .exec()
-            .then((item) => {
-                return res.status(200).json({                    
-                    item,
-                    contagem,
-                    page: page
-                });
-            });;
-
-        res.status(200).json(resultado);
+            .limit(limit);            
+            
+            return res.status(200).json({                    
+                resultado,
+                contagem,
+                page: page
+            });           
 
     } catch (error) {
         console.log(error.message);
