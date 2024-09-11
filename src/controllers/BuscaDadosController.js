@@ -36,13 +36,14 @@ export async function BuscaTitulo(req, res) {
 
         const resultado = await Vaga.find({ Vaga: new RegExp(titulo, 'i') })
             .skip(((page - 1) * limit))
-            .limit(limit);            
-            
-            return res.status(200).json({                    
-                resultado,
-                contagem,
-                page: page
-            });           
+            .limit(limit)
+            .then((item) => {
+                return res.status(200).json({                    
+                    item,
+                    contagem,
+                    page: page
+                });     
+            });                     
 
     } catch (error) {
         console.log(error.message);
