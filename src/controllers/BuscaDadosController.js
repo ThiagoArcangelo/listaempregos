@@ -16,7 +16,8 @@ export async function RetornaDados(req, res) {
                 return res.status(200).json({                    
                     item,
                     contagem,
-                    page: page
+                    page: page,
+                    limit
                 });
             });
 
@@ -41,7 +42,8 @@ export async function BuscaTitulo(req, res) {
                 return res.status(200).json({                    
                     item,
                     contagem,
-                    page: page
+                    page: page,
+                    limit
                 });     
             });                     
 
