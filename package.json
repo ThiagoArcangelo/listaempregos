@@ -11,6 +11,7 @@
     "start": "nodemon --trace-warnings --inspect --env-file=.env src/server.js"
   },
   "dependencies": {
+    "@sparticuz/chromium": "^110.0.1",
     "axios": "^1.7.2",
     "cors": "^2.8.5",
     "csv-parser": "^3.0.0",
@@ -20,7 +21,8 @@
     "mongoose": "^8.1.1",
     "mysql2": "^3.7.0",
     "puppeteer": "^21.1.1",
-    "puppeteer-cluster": "^0.23.0"
+    "puppeteer-cluster": "^0.23.0",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
