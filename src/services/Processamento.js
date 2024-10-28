@@ -1,4 +1,4 @@
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-core";
 // import fs  from "fs";
 
 // Model da aplicação 
@@ -10,14 +10,7 @@ import listEmpregaBauru from "./EmpregaBauru.js";
 import listExitusRh from "./ExistusRh.js";
 
 async function main(req, res) {
-  const browser = await puppeteer.launch({
-    headless: "new",
-    args: chromium.args,
-    defaultViewport: chromium.defaultViewport,
-    executablePath: await chromium.executablePath(),
-    headless: chromium.headless,
-    ignoreHTTPSErrors: true,
-  });
+  const browser = await puppeteer.launch({headless: "new"});
 
   const page = await browser.newPage();
 
